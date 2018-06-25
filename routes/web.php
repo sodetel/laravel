@@ -39,7 +39,24 @@ Route::get('/output/view', function () {
 
 Route::get('/plans', function () {
 
-    $plans = DB::select('select * from plans');
+    $country = request()->get('country');
+    $orderBy = request()->get('order');
+
+    // $plans = DB::select('select * from plans where country = ? order by ?', [$country, $orderBy]);
+
+    $query = DB::table('plans'); //->where('is_active');
+
+    if($country)
+    {
+        $query = $query->where('country', $country);
+    }
+
+    if($orderBy)
+    {
+        $query = $query->orderBy($orderBy);
+    }
+
+    $plans = $query->get();
 
     return $plans;
 
@@ -47,25 +64,32 @@ Route::get('/plans', function () {
 
 Route::get('/plans/{id}', function ($id) {
 
-    $plan = DB::select('select * from plans where id = ? limit 1', [ $id ]);
+    // $plan = DB::select('select * from plans where id = ? limit 1', [ $id ]);
 
-    return $plan;
+    // calling stored procedure
+    // $plan = DB::select('call getPlanById (?)', [ $id ]);
+    // $deleted = DB::delete('call deletePlanById(?)', [$id]);
+
+    $plan = DB::table('plans')->where('id', $id)->first();
+
+    return response()->json($plan);
 
 });
 
 Route::post('/plans', function() {
 
-    // $plan = [
-    //     'name' => 'Super Ultimate',
-    //     'created_at' => date('Y-m-d'),
-    //     'updated_at' => date('Y-m-d'),
-    // ];
+    $plan = [
+        'name' => request()->get('name'),
+        'country' => request()->get('country'),
+        'created_at' => date('Y-m-d'),
+        'updated_at' => date('Y-m-d'),
+    ];
 
-    $name = request()->get('name');
+    // $values = [$name , date('Y-m-d'), date('Y-m-d')];
 
-    $values = [$name , date('Y-m-d'), date('Y-m-d')];
+    // DB::insert('insert into `plans`(name, created_at, updated_at) values(?, ?, ?)', $values);
 
-    DB::insert('insert into `plans`(name, created_at, updated_at) values(?, ?, ?)', $values);
+    DB::table('plans')->insert($plan);
 
     return ['status' => 'ok'];
 
@@ -73,7 +97,9 @@ Route::post('/plans', function() {
 
 Route::delete('/plans', function () {
 
-    $deleted = DB::delete('delete from plans');
+    // $deleted = DB::delete('delete from plans');
+
+    $deleted = DB::table('plans')->delete();
 
     return [
         'status' => 'ok',
@@ -87,7 +113,9 @@ Route::delete('/plans/{id}', function ($id) {
     // $deleted = DB::delete('delete from plans where id = ?', [$id]);
     // here we are using the named parameters, it helps when we have complex
     // query with many parameters, so the order is not important
-    $deleted = DB::delete('delete from plans where id = :id', ['id' => $id]);
+    // $deleted = DB::delete('delete from plans where id = :id', ['id' => $id]);
+
+    $deleted = DB::table('plans')->where('id', $id)->delete();
 
     return [
         'status' => 'ok',

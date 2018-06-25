@@ -12,9 +12,41 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('plans')->insert([
-            ['name' => 'Basic', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
-            ['name' => 'Premium', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
-            ['name' => 'Ultimate', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')],
+            [
+                'name' => 'Basic',
+                'country' => 'LB',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')],
+            [
+                'name' => 'Premium',
+                'country' => 'LB',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'name' => 'Ultimate',
+                'country' => 'UAE',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'name' => 'UAE Basic',
+                'country' => 'UAE',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'name' => 'UAE PRO',
+                'country' => 'UAE',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
+            [
+                'name' => 'UAE SUPER PRO',
+                'country' => 'UAE',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ],
         ]);
 
         DB::table('services')->insert([
