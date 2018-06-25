@@ -83,6 +83,84 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+
+
+        DB::table('applications')->insert([
+            [
+                'date' => '2017-02-01',
+                'applicant_id' => 1,
+                'service_id' => 1,
+                'plan_id' => 1,
+                'description' => '',
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
+            ],
+            [
+                'date' => '2017-02-07',
+                'applicant_id' => 1,
+                'service_id' => 2,
+                'plan_id' => 1,
+                'description' => '',
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
+            ],
+            [
+                'date' => '2017-03-02',
+                'applicant_id' => 1,
+                'service_id' => 2,
+                'plan_id' => 1,
+                'description' => '',
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
+            ],
+            [
+                'date' => '2017-04-05',
+                'applicant_id' => 1,
+                'service_id' => 2,
+                'plan_id' => 2,
+                'description' => '',
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
+            ],
+            [
+                'date' => '2017-05-01',
+                'applicant_id' => 1,
+                'service_id' => 2,
+                'plan_id' => 3,
+                'description' => '',
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
+            ],
+            [
+                'date' => '2017-05-01',
+                'applicant_id' => 1,
+                'service_id' => 2,
+                'plan_id' => 3,
+                'description' => '',
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
+            ],
+            [
+                'date' => '2017-05-01',
+                'applicant_id' => 1,
+                'service_id' => 2,
+                'plan_id' => 4,
+                'description' => '',
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
+            ],
+            [
+                'date' => '2017-05-01',
+                'applicant_id' => 1,
+                'service_id' => 2,
+                'plan_id' => 5,
+                'description' => '',
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
+            ],
+
+        ]);
+
         // $this->call(UsersTableSeeder::class);
     }
 }

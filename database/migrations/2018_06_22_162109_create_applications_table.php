@@ -18,7 +18,7 @@ class CreateApplicationsTable extends Migration
             $table->datetime('date');
             $table->integer('applicant_id')->unsigned();
             $table->integer('service_id')->unsigned();
-            $table->string('status');
+            $table->string('status')->default('pending');
             $table->string('description');
             $table->integer('plan_id');
             $table->timestamps();
