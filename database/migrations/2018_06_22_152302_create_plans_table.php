@@ -17,6 +17,7 @@ class CreatePlansTable extends Migration
             $table->increments('id');
             $table->string('country');
             $table->string('name');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
