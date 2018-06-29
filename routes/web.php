@@ -34,10 +34,21 @@ Route::namespace('Json')->group(function() {
 
 Route::get('/plans', 'PlansController@index');
 Route::get('/plans/{id}', 'PlansController@details');
+Route::get('/plans/{id}/applications', 'PlansController@applications');
+
+
+Route::get('/applications', 'ApplicationsController@index');
+
+Route::get('/menu', 'MenuController@index');
 
 
 // Application actions
 Route::get('/mafia😎', function () {
     DB::statement('create table mafia (id serial);');
     return 'table created';
+});
+
+
+Route::get('/applicants', function() {
+    return \App\Applicant::all();
 });

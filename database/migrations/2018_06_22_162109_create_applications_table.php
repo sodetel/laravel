@@ -19,6 +19,7 @@ class CreateApplicationsTable extends Migration
             $table->integer('applicant_id')->unsigned();
             $table->integer('service_id')->unsigned();
             $table->string('status')->default('pending');
+            $table->float('price')->default(0);
             $table->string('description');
             $table->integer('plan_id');
             $table->timestamps();

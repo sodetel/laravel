@@ -58,7 +58,8 @@ class DatabaseSeeder extends Seeder
         DB::table('applicants')->insert([
             [
                 'phone' => '+961 70 863 993',
-                'name' => 'Ahmad Moussawi',
+                'name' => 'Ahmad',
+                'family' => 'Moussawi',
                 'address' => 'Beirut',
                 'type' => 'residential',
                 'created_at' => date('Y-m-d H:i:s'),
@@ -67,6 +68,7 @@ class DatabaseSeeder extends Seeder
             [
                 'phone' => '+961 70 123456',
                 'name' => 'Jessica',
+                'family' => 'Jessica',
                 'address' => 'Beirut',
                 'type' => 'residential',
                 'created_at' => date('Y-m-d H:i:s'),
@@ -75,6 +77,7 @@ class DatabaseSeeder extends Seeder
             [
                 'phone' => '+961 70 123458',
                 'name' => 'Nadine',
+                'family' => 'Nadine',
                 'address' => 'Beirut',
                 'type' => 'corporate',
                 'created_at' => date('Y-m-d H:i:s'),
@@ -87,6 +90,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('applications')->insert([
             [
+                'price' => '100',
                 'date' => '2017-02-01',
                 'applicant_id' => 1,
                 'service_id' => 1,
@@ -96,6 +100,7 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => date('Y-m-d'),
             ],
             [
+                'price' => '150',
                 'date' => '2017-02-07',
                 'applicant_id' => 1,
                 'service_id' => 2,
@@ -105,6 +110,7 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => date('Y-m-d'),
             ],
             [
+                'price' => '200',
                 'date' => '2017-03-02',
                 'applicant_id' => 1,
                 'service_id' => 2,
@@ -114,6 +120,7 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => date('Y-m-d'),
             ],
             [
+                'price' => '100',
                 'date' => '2017-04-05',
                 'applicant_id' => 1,
                 'service_id' => 2,
@@ -123,6 +130,7 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => date('Y-m-d'),
             ],
             [
+                'price' => '90',
                 'date' => '2017-05-01',
                 'applicant_id' => 1,
                 'service_id' => 2,
@@ -132,6 +140,7 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => date('Y-m-d'),
             ],
             [
+                'price' => '0',
                 'date' => '2017-05-01',
                 'applicant_id' => 1,
                 'service_id' => 2,
@@ -141,6 +150,7 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => date('Y-m-d'),
             ],
             [
+                'price' => '300',
                 'date' => '2017-05-01',
                 'applicant_id' => 1,
                 'service_id' => 2,
@@ -150,6 +160,7 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => date('Y-m-d'),
             ],
             [
+                'price' => '20',
                 'date' => '2017-05-01',
                 'applicant_id' => 1,
                 'service_id' => 2,
@@ -159,6 +170,38 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => date('Y-m-d'),
             ],
 
+        ]);
+
+        DB::table('menu')->insert([
+            // [
+            //     'name' => 'Pending Feasibility',
+            //     'path' => '/pending',
+            //     'role' => 'sales',
+            // ],
+            // [
+            //     'name' => 'Ready for Configuration',
+            //     'path' => '/ready-for-configuration',
+            //     'role' => 'technical',
+            // ],
+            // [
+            //     'name' => 'Ready for Installation',
+            //     'path' => '/ready-for-installation',
+            //     'role' => 'outdoor',
+            // ],
+            // [
+            //     'name' => 'Complaints',
+            //     'path' => '/complaints',
+            //     'role' => 'support',
+            // ],
+
+            [
+                'name' => 'Plans',
+                'path' => '/plans',
+            ],
+            [
+                'name' => 'Applications',
+                'path' => '/applications',
+            ],
         ]);
 
         // $this->call(UsersTableSeeder::class);

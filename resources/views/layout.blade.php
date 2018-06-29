@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sodetel :: CMA</title>
+    <title>Sodetel :: @yield('title')</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
@@ -12,20 +12,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
-    <style>
-        .header {
-            margin-bottom: 70px;
-        }
+    @section('styles')
+        <style>
+            .header {
+                margin-bottom: 70px;
+            }
 
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 10px;
-            border-top: 1px solid #eee;
-        }
-    </style>
+            .footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 10px;
+                border-top: 1px solid #eee;
+            }
+
+            .list-group-item.active a {
+                color: #fff;
+            }
+        </style>
+    @show
 
 </head>
 <body>
@@ -70,12 +76,11 @@
         </nav>
 </div>
 
-<div style="outline: 5px solid red">
-    @yield('content')
-</div>
+@yield('content')
 
 <div class="footer">
     <div class="copyright">&copy; {{ date('Y') }} Sodetel</div>
+    All prices are in {{ $currency }}
 </div>
 
 </body>

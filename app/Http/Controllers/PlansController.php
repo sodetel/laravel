@@ -12,6 +12,8 @@ class PlansController extends Controller
 
         $totalBalance = 500000011;
 
+
+
         // load this resources/views/plans/index.blade.php
         return view('plans.index', [
             'plans' => $plans,
@@ -24,7 +26,16 @@ class PlansController extends Controller
         $plan = \App\Plan::find($id);
 
         return view('plans.details', [
-            'plan' => $plan
+            'plan' => $plan,
+        ]);
+    }
+
+    function applications($id)
+    {
+        $plan = \App\Plan::with('applications')->find($id);
+
+        return view('plans.applications', [
+            'plan' => $plan,
         ]);
     }
 }
