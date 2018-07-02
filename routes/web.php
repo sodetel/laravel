@@ -41,6 +41,10 @@ Route::get('/applications', 'ApplicationsController@index');
 
 Route::get('/menu', 'MenuController@index');
 
+Route::get('/support', function() {
+    return view('support');
+});
+
 
 // Application actions
 Route::get('/mafia😎', function () {

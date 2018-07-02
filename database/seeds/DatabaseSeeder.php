@@ -202,6 +202,10 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Applications',
                 'path' => '/applications',
             ],
+            [
+                'name' => 'Support',
+                'path' => '/support',
+            ],
         ]);
 
         // $this->call(UsersTableSeeder::class);
