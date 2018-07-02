@@ -5,6 +5,18 @@
 @section('content')
 <div class="container">
 
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
+
+    @if (session('saveerror'))
+        <div class="alert alert-danger">
+            {{ session('saveerror') }}
+        </div>
+    @endif
+
     <div class="row">
         <div class="col-md-3">
             @include('shared.leftnav')
@@ -15,7 +27,12 @@
                 'active' => 'Applications',
             ]])
 
-            <h1>Applications</h1>
+            <h1>
+                <a class="btn btn-link" style="float:right" href="/applications/create">
+                    New application <i class="fa fa-plus-square"></i>
+                </a>
+                Applications
+            </h1>
 
             <table class="table">
                 <tr>
