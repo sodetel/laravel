@@ -19,6 +19,21 @@ class PlansController extends Controller
 
         $totalBalance = 500000011;
 
+        $plan->created_by = request()->user()->email;
+
+        if(Auth::check()) {
+            // user logged in
+        } else {
+            // user not logged in
+        }
+
+        if(Auth::guest()) {
+            // user not logged in
+        } else {
+
+            // user logged in
+        }
+
 
 
         // load this resources/views/plans/index.blade.php

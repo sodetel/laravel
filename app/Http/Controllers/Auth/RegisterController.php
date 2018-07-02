@@ -63,6 +63,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        throw new \Exception('Users registration is not permitted 😡');
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
