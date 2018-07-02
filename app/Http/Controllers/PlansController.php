@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class PlansController extends Controller
 {
+
+    public function __construct() {
+
+        $this->middleware('auth');
+
+    }
+
     function index() {
 
         $plans = \App\Plan::all();
