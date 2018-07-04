@@ -1,9 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
 <div class="row">
     <div class="col-md-3">@include('shared.leftnav')</div>
     <div class="col-md-9">
+
+       @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form action="/applications/create" method="POST">
 
             @csrf
@@ -47,12 +59,12 @@
 
             <div class="form-group">
                 <label for="">Price</label>
-                <input type="text" name="price" class="form-control">
+                <input type="text" name="price" class="form-control" value="{{ old('price') }}">
             </div>
 
             <div class="form-group">
                 <label for="">Description</label>
-                <textarea class="form-control" name="description" rows="10"></textarea>
+                <textarea class="form-control" name="description" rows="10">{{ old('description') }}</textarea>
             </div>
 
             <p class="text-right">
@@ -73,5 +85,6 @@
 
         </form>
     </div>
+</div>
 </div>
 @stop

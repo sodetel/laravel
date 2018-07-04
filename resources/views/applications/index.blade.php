@@ -28,9 +28,13 @@
             ]])
 
             <h1>
+
+                @can('create', 'App\Application')
                 <a class="btn btn-link" style="float:right" href="/applications/create">
                     New application <i class="fa fa-plus-square"></i>
                 </a>
+                @endcan
+
                 Applications
             </h1>
 
@@ -38,17 +42,20 @@
                 <tr>
                     <th>Id</th>
                     <th>Applicant Name</th>
+                    <th>Branch</th>
                     <th>Service</th>
                     <th>Date</th>
                     <th>Description</th>
                     <th>Status</th>
                     <th>Price</th>
                     <th>Created At</th>
+                    <th></th>
                 </tr>
 
                 @foreach($applications as $application)
                     <tr>
                         <td>{{ $application->id }}</td>
+                        <td>{{ $application->branch }}</td>
                         <td>{{ $application->applicant_id }}</td>
                         <td>{{ $application->service_id }}</td>
                         <td>{{ $application->date->format($dateFormat) }} - {{ $application->date->diffForHumans() }}</td>
@@ -56,6 +63,13 @@
                         <td>{{ $application->status }}</td>
                         <td>{{ $currency }} {{ $application->price }}</td>
                         <td>{{ $application->created_at->format($dateFormat) }}</td>
+                        <td>
+                            @can('view', $application)
+                            <a class="btn btn-default" href="/applications/{{ $application->id }}">View</a>
+                            @else
+                            <button class="btn btn-default" disabled>View</button>
+                            @endcan
+                        </td>
                     </tr>
                 @endforeach
 

@@ -16,6 +16,7 @@ class CreateApplicationsTable extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->increments('id');
             $table->datetime('date');
+            $table->string('branch');
             $table->integer('applicant_id')->unsigned();
             $table->integer('service_id')->unsigned();
             $table->string('status')->default('pending');

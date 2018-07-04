@@ -1,5 +1,7 @@
 <?php
 
+include 'myfunctions.php';
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +45,7 @@ Route::get('/plans/{id}/applications', 'PlansController@applications');
 
 Route::get('/applications', 'ApplicationsController@index');
 Route::get('/applications/create', 'ApplicationsController@showCreate');
+Route::get('/applications/{application}', 'ApplicationsController@details');
 Route::post('/applications/create', 'ApplicationsController@create');
 
 Route::get('/menu', 'MenuController@index');

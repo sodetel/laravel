@@ -92,6 +92,7 @@ class DatabaseSeeder extends Seeder
             [
                 'price' => '100',
                 'date' => '2017-02-01',
+                'branch' => 'beirut',
                 'applicant_id' => 1,
                 'service_id' => 1,
                 'plan_id' => 1,
@@ -102,6 +103,7 @@ class DatabaseSeeder extends Seeder
             [
                 'price' => '150',
                 'date' => '2017-02-07',
+                'branch' => 'beirut',
                 'applicant_id' => 1,
                 'service_id' => 2,
                 'plan_id' => 1,
@@ -112,6 +114,7 @@ class DatabaseSeeder extends Seeder
             [
                 'price' => '200',
                 'date' => '2017-03-02',
+                'branch' => 'saida',
                 'applicant_id' => 1,
                 'service_id' => 2,
                 'plan_id' => 1,
@@ -122,6 +125,7 @@ class DatabaseSeeder extends Seeder
             [
                 'price' => '100',
                 'date' => '2017-04-05',
+                'branch' => 'tripoli',
                 'applicant_id' => 1,
                 'service_id' => 2,
                 'plan_id' => 2,
@@ -132,6 +136,7 @@ class DatabaseSeeder extends Seeder
             [
                 'price' => '90',
                 'date' => '2017-05-01',
+                'branch' => 'tripoli',
                 'applicant_id' => 1,
                 'service_id' => 2,
                 'plan_id' => 3,
@@ -142,6 +147,7 @@ class DatabaseSeeder extends Seeder
             [
                 'price' => '0',
                 'date' => '2017-05-01',
+                'branch' => 'tyr',
                 'applicant_id' => 1,
                 'service_id' => 2,
                 'plan_id' => 3,
@@ -152,6 +158,7 @@ class DatabaseSeeder extends Seeder
             [
                 'price' => '300',
                 'date' => '2017-05-01',
+                'branch' => 'saida',
                 'applicant_id' => 1,
                 'service_id' => 2,
                 'plan_id' => 4,
@@ -162,6 +169,7 @@ class DatabaseSeeder extends Seeder
             [
                 'price' => '20',
                 'date' => '2017-05-01',
+                'branch' => 'tyr',
                 'applicant_id' => 1,
                 'service_id' => 2,
                 'plan_id' => 5,
@@ -208,6 +216,12 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
-        // $this->call(UsersTableSeeder::class);
+        $user = new \App\User();
+        $user->name = 'Jessica';
+        $user->email = 'jessica@sodetel.com.lb';
+        $user->is_admin = true;
+        $user->password = bcrypt('123456');
+        $user->branch = 'beirut';
+        $user->save();
     }
 }
